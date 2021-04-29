@@ -6,10 +6,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GFButton.h"
+#import "GFTextField.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchVC : UIViewController
+@property GFButton      *searchButton;
+@property GFTextField   *searchTextField;
+@property UIImageView   *logoImageView;
 
 @end
 

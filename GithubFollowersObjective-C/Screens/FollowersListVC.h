@@ -1,5 +1,5 @@
 //
-//  FavouritesVC.h
+//  FollowersListVC.h
 //  GithubFollowersObjective-C
 //
 //  Created by Jakub Gawecki on 29/04/2021.
@@ -9,8 +9,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FavouritesVC : UIViewController
-@property UITableView *tableView;
+@interface FollowersListVC : UIViewController
+
+
 @end
 
 NS_ASSUME_NONNULL_END

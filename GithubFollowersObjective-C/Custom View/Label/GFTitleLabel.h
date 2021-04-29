@@ -1,5 +1,5 @@
 //
-//  FavouritesVC.h
+//  GFTitleLabel.h
 //  GithubFollowersObjective-C
 //
 //  Created by Jakub Gawecki on 29/04/2021.
@@ -9,8 +9,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FavouritesVC : UIViewController
-@property UITableView *tableView;
+@interface GFTitleLabel : UILabel
+
+-(instancetype)initWithTextAlignment:(NSTextAlignment *)textAlignment andFontSize:(CGFloat *)fontSize;
+
 @end
 
 NS_ASSUME_NONNULL_END
