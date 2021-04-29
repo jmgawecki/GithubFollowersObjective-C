@@ -104,17 +104,10 @@
 		EF6A60DA263B2100007BF040 /* GithubFollowersObjective-C */ = {
 			isa = PBXGroup;
 			children = (
-				EF6A60DB263B2100007BF040 /* AppDelegate.h */,
-				EF6A60DC263B2100007BF040 /* AppDelegate.m */,
-				EF6A60DE263B2100007BF040 /* SceneDelegate.h */,
-				EF6A60DF263B2100007BF040 /* SceneDelegate.m */,
-				EF6A60E1263B2100007BF040 /* ViewController.h */,
-				EF6A60E2263B2100007BF040 /* ViewController.m */,
+				EF6A6111263B2111007BF040 /* Screens */,
+				EF6A6110263B2105007BF040 /* Component */,
 				EF6A60E4263B2100007BF040 /* Main.storyboard */,
-				EF6A60E7263B2101007BF040 /* Assets.xcassets */,
-				EF6A60E9263B2101007BF040 /* LaunchScreen.storyboard */,
 				EF6A60EC263B2101007BF040 /* Info.plist */,
-				EF6A60ED263B2101007BF040 /* main.m */,
 			);
 			path = "GithubFollowersObjective-C";
 			sourceTree = "<group>";
@@ -135,6 +128,29 @@
 				EF6A6104263B2101007BF040 /* Info.plist */,
 			);
 			path = "GithubFollowersObjective-CUITests";
+			sourceTree = "<group>";
+		};
+		EF6A6110263B2105007BF040 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A60ED263B2101007BF040 /* main.m */,
+				EF6A60E7263B2101007BF040 /* Assets.xcassets */,
+				EF6A60E9263B2101007BF040 /* LaunchScreen.storyboard */,
+				EF6A60DF263B2100007BF040 /* SceneDelegate.m */,
+				EF6A60DE263B2100007BF040 /* SceneDelegate.h */,
+				EF6A60DC263B2100007BF040 /* AppDelegate.m */,
+				EF6A60DB263B2100007BF040 /* AppDelegate.h */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		EF6A6111263B2111007BF040 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A60E1263B2100007BF040 /* ViewController.h */,
+				EF6A60E2263B2100007BF040 /* ViewController.m */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
