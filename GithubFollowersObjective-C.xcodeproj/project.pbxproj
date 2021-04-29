@@ -15,8 +15,10 @@
 		EF6A60EE263B2101007BF040 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A60ED263B2101007BF040 /* main.m */; };
 		EF6A60F8263B2101007BF040 /* GithubFollowersObjective_CTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A60F7263B2101007BF040 /* GithubFollowersObjective_CTests.m */; };
 		EF6A6103263B2101007BF040 /* GithubFollowersObjective_CUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6102263B2101007BF040 /* GithubFollowersObjective_CUITests.m */; };
-		EF6A6113263B219D007BF040 /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6A6112263B219D007BF040 /* SearchVC.xib */; };
 		EF6A6116263B2239007BF040 /* SearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6115263B2239007BF040 /* SearchVC.m */; };
+		EF6A611B263B29E9007BF040 /* GHTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A611A263B29E9007BF040 /* GHTabbarController.m */; };
+		EF6A611D263B2A29007BF040 /* SearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A611C263B2A29007BF040 /* SearchVC.m */; };
+		EF6A6120263B2D83007BF040 /* FavouritesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A611F263B2D83007BF040 /* FavouritesVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,9 +55,13 @@
 		EF6A60FE263B2101007BF040 /* GithubFollowersObjective-CUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GithubFollowersObjective-CUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF6A6102263B2101007BF040 /* GithubFollowersObjective_CUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GithubFollowersObjective_CUITests.m; sourceTree = "<group>"; };
 		EF6A6104263B2101007BF040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF6A6112263B219D007BF040 /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
 		EF6A6114263B2239007BF040 /* SearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchVC.h; sourceTree = "<group>"; };
 		EF6A6115263B2239007BF040 /* SearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchVC.m; sourceTree = "<group>"; };
+		EF6A6119263B29E9007BF040 /* GHTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHTabbarController.h; sourceTree = "<group>"; };
+		EF6A611A263B29E9007BF040 /* GHTabbarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHTabbarController.m; sourceTree = "<group>"; };
+		EF6A611C263B2A29007BF040 /* SearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchVC.m; sourceTree = "<group>"; };
+		EF6A611E263B2D83007BF040 /* FavouritesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavouritesVC.h; sourceTree = "<group>"; };
+		EF6A611F263B2D83007BF040 /* FavouritesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavouritesVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 		EF6A60DA263B2100007BF040 /* GithubFollowersObjective-C */ = {
 			isa = PBXGroup;
 			children = (
+				EF6A6117263B29CA007BF040 /* Custom View */,
 				EF6A6111263B2111007BF040 /* Screens */,
 				EF6A6110263B2105007BF040 /* Component */,
 				EF6A60E4263B2100007BF040 /* Main.storyboard */,
@@ -119,6 +126,7 @@
 			children = (
 				EF6A60F7263B2101007BF040 /* GithubFollowersObjective_CTests.m */,
 				EF6A60F9263B2101007BF040 /* Info.plist */,
+				EF6A611C263B2A29007BF040 /* SearchVC.m */,
 			);
 			path = "GithubFollowersObjective-CTests";
 			sourceTree = "<group>";
@@ -149,11 +157,29 @@
 		EF6A6111263B2111007BF040 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				EF6A6112263B219D007BF040 /* SearchVC.xib */,
 				EF6A6114263B2239007BF040 /* SearchVC.h */,
 				EF6A6115263B2239007BF040 /* SearchVC.m */,
+				EF6A611E263B2D83007BF040 /* FavouritesVC.h */,
+				EF6A611F263B2D83007BF040 /* FavouritesVC.m */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		EF6A6117263B29CA007BF040 /* Custom View */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A6118263B29D3007BF040 /* Tab bar */,
+			);
+			path = "Custom View";
+			sourceTree = "<group>";
+		};
+		EF6A6118263B29D3007BF040 /* Tab bar */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A6119263B29E9007BF040 /* GHTabbarController.h */,
+				EF6A611A263B29E9007BF040 /* GHTabbarController.m */,
+			);
+			path = "Tab bar";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +284,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF6A6113263B219D007BF040 /* SearchVC.xib in Resources */,
 				EF6A60EB263B2101007BF040 /* LaunchScreen.storyboard in Resources */,
 				EF6A60E8263B2101007BF040 /* Assets.xcassets in Resources */,
 				EF6A60E6263B2100007BF040 /* Main.storyboard in Resources */,
@@ -287,6 +312,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF6A60DD263B2100007BF040 /* AppDelegate.m in Sources */,
+				EF6A611B263B29E9007BF040 /* GHTabbarController.m in Sources */,
+				EF6A6120263B2D83007BF040 /* FavouritesVC.m in Sources */,
 				EF6A60EE263B2101007BF040 /* main.m in Sources */,
 				EF6A6116263B2239007BF040 /* SearchVC.m in Sources */,
 				EF6A60E0263B2100007BF040 /* SceneDelegate.m in Sources */,
@@ -297,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF6A611D263B2A29007BF040 /* SearchVC.m in Sources */,
 				EF6A60F8263B2101007BF040 /* GithubFollowersObjective_CTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

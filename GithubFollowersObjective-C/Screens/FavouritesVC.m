@@ -1,17 +1,17 @@
 //
-//  SearchVC.m
+//  FavouritesVC.m
 //  GithubFollowersObjective-C
 //
 //  Created by Jakub Gawecki on 29/04/2021.
 //
 
-#import "SearchVC.h"
+#import "FavouritesVC.h"
 
-@interface SearchVC ()
+@interface FavouritesVC ()
 
 @end
 
-@implementation SearchVC
+@implementation FavouritesVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

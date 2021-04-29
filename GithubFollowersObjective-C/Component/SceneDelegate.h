@@ -7,10 +7,12 @@
 
 #import <UIKit/UIKit.h>
 #import "SearchVC.h"
+#import "GHTabbarController.h"
 
 @interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
 
 @property (strong, nonatomic) UIWindow * window;
+@property (strong, nonatomic) GHTabbarController *tabBarController;
 @property (strong, nonatomic) SearchVC *viewController;
 @end
 
