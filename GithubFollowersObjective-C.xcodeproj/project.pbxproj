@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		EF6A60DD263B2100007BF040 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A60DC263B2100007BF040 /* AppDelegate.m */; };
 		EF6A60E0263B2100007BF040 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A60DF263B2100007BF040 /* SceneDelegate.m */; };
-		EF6A60E3263B2100007BF040 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A60E2263B2100007BF040 /* ViewController.m */; };
 		EF6A60E6263B2100007BF040 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF6A60E4263B2100007BF040 /* Main.storyboard */; };
 		EF6A60E8263B2101007BF040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF6A60E7263B2101007BF040 /* Assets.xcassets */; };
 		EF6A60EB263B2101007BF040 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF6A60E9263B2101007BF040 /* LaunchScreen.storyboard */; };
 		EF6A60EE263B2101007BF040 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A60ED263B2101007BF040 /* main.m */; };
 		EF6A60F8263B2101007BF040 /* GithubFollowersObjective_CTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A60F7263B2101007BF040 /* GithubFollowersObjective_CTests.m */; };
 		EF6A6103263B2101007BF040 /* GithubFollowersObjective_CUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6102263B2101007BF040 /* GithubFollowersObjective_CUITests.m */; };
+		EF6A6113263B219D007BF040 /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6A6112263B219D007BF040 /* SearchVC.xib */; };
+		EF6A6116263B2239007BF040 /* SearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6115263B2239007BF040 /* SearchVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +42,6 @@
 		EF6A60DC263B2100007BF040 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EF6A60DE263B2100007BF040 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		EF6A60DF263B2100007BF040 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		EF6A60E1263B2100007BF040 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EF6A60E2263B2100007BF040 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EF6A60E5263B2100007BF040 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF6A60E7263B2101007BF040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF6A60EA263B2101007BF040 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +53,9 @@
 		EF6A60FE263B2101007BF040 /* GithubFollowersObjective-CUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GithubFollowersObjective-CUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF6A6102263B2101007BF040 /* GithubFollowersObjective_CUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GithubFollowersObjective_CUITests.m; sourceTree = "<group>"; };
 		EF6A6104263B2101007BF040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF6A6112263B219D007BF040 /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
+		EF6A6114263B2239007BF040 /* SearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchVC.h; sourceTree = "<group>"; };
+		EF6A6115263B2239007BF040 /* SearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +149,9 @@
 		EF6A6111263B2111007BF040 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				EF6A60E1263B2100007BF040 /* ViewController.h */,
-				EF6A60E2263B2100007BF040 /* ViewController.m */,
+				EF6A6112263B219D007BF040 /* SearchVC.xib */,
+				EF6A6114263B2239007BF040 /* SearchVC.h */,
+				EF6A6115263B2239007BF040 /* SearchVC.m */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF6A6113263B219D007BF040 /* SearchVC.xib in Resources */,
 				EF6A60EB263B2101007BF040 /* LaunchScreen.storyboard in Resources */,
 				EF6A60E8263B2101007BF040 /* Assets.xcassets in Resources */,
 				EF6A60E6263B2100007BF040 /* Main.storyboard in Resources */,
@@ -282,9 +286,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF6A60E3263B2100007BF040 /* ViewController.m in Sources */,
 				EF6A60DD263B2100007BF040 /* AppDelegate.m in Sources */,
 				EF6A60EE263B2101007BF040 /* main.m in Sources */,
+				EF6A6116263B2239007BF040 /* SearchVC.m in Sources */,
 				EF6A60E0263B2100007BF040 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
