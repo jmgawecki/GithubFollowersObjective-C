@@ -44,7 +44,7 @@
     self.tableView.backgroundColor  = [UIColor systemBackgroundColor];
     self.tableView.rowHeight        = 80;
     
-    [self.tableView registerNib:FavouritesCell.self forCellReuseIdentifier:FavouritesCell.reuseID];
+    [self.tableView registerNib:FavouritesCell.self forCellReuseIdentifier:@"FavouriteCell"];
 }
 
 @end

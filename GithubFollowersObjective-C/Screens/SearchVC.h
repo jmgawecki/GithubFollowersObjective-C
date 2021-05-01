@@ -9,13 +9,16 @@
 #import "GFButton.h"
 #import "GFTextField.h"
 #import "FollowersListVC.h"
+#import "NetworkManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SearchVC : UIViewController
+@interface SearchVC : UIViewController <UITextFieldDelegate>
 @property GFButton      *searchButton;
 @property GFTextField   *searchTextField;
 @property UIImageView   *logoImageView;
+@property NetworkManager *sharedManager;
+@property NSMutableArray *followersArray;
 
 @end
 

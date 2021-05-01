@@ -31,6 +31,7 @@
 		EF6A614D263D6925007BF040 /* Follower.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A614C263D6925007BF040 /* Follower.m */; };
 		EF6A6152263D71DE007BF040 /* FollowersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6151263D71DE007BF040 /* FollowersCollectionView.swift */; };
 		EF6A615C263D85B8007BF040 /* FollowerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A615B263D85B8007BF040 /* FollowerCell.m */; };
+		EF6A615E263D9877007BF040 /* FollowersListVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A615D263D9877007BF040 /* FollowersListVCTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		EF6A6151263D71DE007BF040 /* FollowersCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCollectionView.swift; sourceTree = "<group>"; };
 		EF6A615A263D85B8007BF040 /* FollowerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FollowerCell.h; sourceTree = "<group>"; };
 		EF6A615B263D85B8007BF040 /* FollowerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowerCell.m; sourceTree = "<group>"; };
+		EF6A615D263D9877007BF040 /* FollowersListVCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowersListVCTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				EF6A60F9263B2101007BF040 /* Info.plist */,
 				EF6A611C263B2A29007BF040 /* SearchVCTests.m */,
 				EF6A6149263C476D007BF040 /* NetworkManagerTests.m */,
+				EF6A615D263D9877007BF040 /* FollowersListVCTests.m */,
 			);
 			path = "GithubFollowersObjective-CTests";
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 			files = (
 				EF6A611D263B2A29007BF040 /* SearchVCTests.m in Sources */,
 				EF6A614A263C476E007BF040 /* NetworkManagerTests.m in Sources */,
+				EF6A615E263D9877007BF040 /* FollowersListVCTests.m in Sources */,
 				EF6A60F8263B2101007BF040 /* GithubFollowersObjective_CTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *username;
 @property UICollectionView *followersCollectionView;
 @property NSArray *followersArray;
+// MARK: - Delegates
 
 -(instancetype)initWithUsername:(NSString*)username;
 

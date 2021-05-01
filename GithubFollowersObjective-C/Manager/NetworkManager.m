@@ -30,7 +30,7 @@
 }
 
 
--(NSMutableArray*)getFollowersOf:(NSString*)user atPage:(NSNumber*)page {
+-(NSMutableArray*)getFollowersOf:(NSString*)user atPage:(NSNumber*)page completion:(Follower*)follower {
     NSString *urlString = [NSString stringWithFormat:@"https://api.github.com/users/%@/followers?per_page=100&page=%@", user, page];
     
     NSURL *url = [NSURL URLWithString:urlString];

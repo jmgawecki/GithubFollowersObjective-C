@@ -46,7 +46,12 @@
 - (void)configureFollowersCollectionView {
     self.followersCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds
                                                       collectionViewLayout:[self createThreeColumnLayout]];
-    [self.followersCollectionView registerNib:FollowerCell.self forCellWithReuseIdentifier:FollowerCell.reuseID];
+    [self.view addSubview:self.followersCollectionView];
+    self.view.translatesAutoresizingMaskIntoConstraints = NO;
+    self.followersCollectionView.backgroundColor        = [UIColor systemBackgroundColor];
+    [self.followersCollectionView registerNib:FollowerCell.self forCellWithReuseIdentifier:@"FollowerCell"];
+    self.followersCollectionView.delegate               = self;
+    self.followersCollectionView.dataSource             = self;
 }
 
 
@@ -68,14 +73,20 @@
 
 // MARK - UICollectionView Delegate
 
-
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    NSLog(@"numberOfSectionsInCollectionView executed");
     return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSLog(@"numberOfItemsInSection executed");
     return self.followersArray.count;
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"cellForItemAtIndexPath executed");
+    FollowerCell *cell = [[FollowerCell alloc] init];
+    return cell;
 }
 
 

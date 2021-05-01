@@ -22,6 +22,7 @@
     [self layoutUI];
     [self dismissKeyboardTapGesture];
     [self configureSearchButton];
+    
 }
 
 // MARK: - VC Configuration
@@ -47,6 +48,8 @@
     if ([self.searchTextField.text  isEqual: @""]) {
         NSLog(@"Username is empty!");
     } else {
+        self.followersArray = [NSMutableArray new];
+        self.followersArray = [self.sharedManager getFollowersOf:self.searchTextField.text atPage:@1];
         [self.navigationController pushViewController:[[FollowersListVC alloc] initWithUsername:self.searchTextField.text] animated:YES];
     }
 }
@@ -60,9 +63,12 @@
 // MARK: - Layout UI
 
 - (void)instantiatieUIElements {
-    self.logoImageView      = [[UIImageView alloc] init];
-    self.searchTextField    = [[GFTextField alloc] init];
-    self.searchButton       = [[GFButton alloc] initWithMessage:@"Search user" withBackgroundColour:[UIColor systemGreenColor]];
+    self.logoImageView              = [[UIImageView alloc] init];
+    self.searchTextField            = [[GFTextField alloc] init];
+    self.searchTextField.delegate   = self;
+    self.searchButton               = [[GFButton alloc] initWithMessage:@"Search user"
+                                                   withBackgroundColour:[UIColor systemGreenColor]];
+    NetworkManager *sharedManager = [NetworkManager sharedManager];
 }
 
 
@@ -95,6 +101,14 @@
         [self.searchButton.trailingAnchor       constraintEqualToAnchor:self.view.trailingAnchor constant:-50],
         [self.searchButton.heightAnchor         constraintEqualToConstant:50],
     ]];
+}
+
+
+// MARK: - UITextField Delegates
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self searchButtonTapped];
+    return YES;
 }
 
 
