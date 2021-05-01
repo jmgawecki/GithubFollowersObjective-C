@@ -7,6 +7,7 @@
 
 #import "SearchVC.h"
 
+
 @interface SearchVC ()
 
 @end
@@ -19,13 +20,40 @@
     [self instantiatieUIElements];
     [self configureUIElements];
     [self layoutUI];
+    [self dismissKeyboardTapGesture];
+    [self configureSearchButton];
 }
 
 // MARK: - VC Configuration
 
+
 - (void)configureVC {
     self.view.backgroundColor = [UIColor systemBackgroundColor];
-    self.navigationController.navigationBar.prefersLargeTitles = YES;
+    self.navigationController.navigationBar.prefersLargeTitles = NO;
+    self.navigationController.navigationBarHidden = YES;
+}
+
+
+- (void)dismissKeyboardTapGesture {
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self.view action:@selector(endEditing:)];
+    [self.view addGestureRecognizer:tap];
+}
+
+
+// MARK: - Perform action
+
+
+-(void)searchButtonTapped {
+    if ([self.searchTextField.text  isEqual: @""]) {
+        NSLog(@"Username is empty!");
+    } else {
+        [self.navigationController pushViewController:[[FollowersListVC alloc] initWithUsername:self.searchTextField.text] animated:YES];
+    }
+}
+
+
+-(void)configureSearchButton {
+    [self.searchButton addTarget:self action:@selector(searchButtonTapped) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -54,7 +82,7 @@
     [NSLayoutConstraint activateConstraints:@[
         [self.logoImageView.topAnchor           constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:80],
         [self.logoImageView.centerXAnchor       constraintEqualToAnchor:self.view.centerXAnchor],
-        [self.logoImageView.heightAnchor        constraintEqualToConstant:200],
+        [self.logoImageView.heightAnchor        constraintEqualToConstant:150],
         [self.logoImageView.widthAnchor         constraintEqualToAnchor:self.logoImageView.heightAnchor],
         
         [self.searchTextField.topAnchor         constraintEqualToAnchor:self.logoImageView.bottomAnchor constant:48],

@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "GFButton.h"
 #import "GFTextField.h"
+#import "FollowersListVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

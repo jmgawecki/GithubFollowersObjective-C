@@ -6,14 +6,15 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "SearchVC.h"
 
-@interface SearchVC : XCTestCase
+@interface SearchVCTests : XCTestCase
 
 @property (strong, nonatomic) SearchVC *searchVC;
 
 @end
 
-@implementation SearchVC
+@implementation SearchVCTests
 
 - (void)testInstantiatedSearchVCIsNotNil {
     // Arrange Act

@@ -10,7 +10,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FollowersListVC : UIViewController
+@property NSString *username;
 
+-(instancetype)initWithUsername:(NSString*)username;
 
 @end
 
