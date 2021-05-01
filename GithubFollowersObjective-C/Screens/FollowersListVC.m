@@ -26,10 +26,11 @@
     self.navigationController.navigationBar.prefersLargeTitles = YES;
 }
 
-- (instancetype)initWithUsername:(NSString *)username {
+- (instancetype)initWithUsername:(NSString *)username andWithFollowers:(nonnull NSMutableArray *)followers {
     if (self = [super init]) {
         self.username = username;
         self.title = username;
+        self.followersArray = [[NSMutableArray alloc] initWithObjects:followers, nil];
     }
     return self;
 }

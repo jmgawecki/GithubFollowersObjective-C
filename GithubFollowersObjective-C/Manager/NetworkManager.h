@@ -15,6 +15,6 @@
 @property (nonatomic, retain) NSString *someProperty;
 + (id)sharedManager;
 
--(NSMutableArray*)getFollowersOf:(NSString*)user atPage:(NSNumber*)page;
+-(void)getFollowersOf:(NSString*)user atPage:(NSNumber*)page completion:(void (^)(NSMutableArray*))follower;
 
 @end

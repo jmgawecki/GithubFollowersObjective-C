@@ -30,7 +30,7 @@
 }
 
 
--(NSMutableArray*)getFollowersOf:(NSString*)user atPage:(NSNumber*)page completion:(Follower*)follower {
+-(void)getFollowersOf:(NSString*)user atPage:(NSNumber*)page completion:(void (^)(NSMutableArray*))completion  {
     NSString *urlString = [NSString stringWithFormat:@"https://api.github.com/users/%@/followers?per_page=100&page=%@", user, page];
     
     NSURL *url = [NSURL URLWithString:urlString];
@@ -58,7 +58,7 @@
                                                 andAvatarUrl:entry[@"avatar_url"]]];
     }
     
-    return jsonArray;
+    completion(jsonArray);
 }
 
 

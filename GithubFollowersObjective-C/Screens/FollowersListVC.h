@@ -15,10 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FollowersListVC : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 @property NSString *username;
 @property UICollectionView *followersCollectionView;
-@property NSArray *followersArray;
+@property NSMutableArray *followersArray;
 // MARK: - Delegates
 
--(instancetype)initWithUsername:(NSString*)username;
+-(instancetype)initWithUsername:(NSString*)username andWithFollowers:(NSMutableArray*)followers;
 
 
 @end

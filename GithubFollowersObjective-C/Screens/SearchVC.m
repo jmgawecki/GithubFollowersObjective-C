@@ -49,8 +49,12 @@
         NSLog(@"Username is empty!");
     } else {
         self.followersArray = [NSMutableArray new];
-        self.followersArray = [self.sharedManager getFollowersOf:self.searchTextField.text atPage:@1];
-        [self.navigationController pushViewController:[[FollowersListVC alloc] initWithUsername:self.searchTextField.text] animated:YES];
+        
+        [self.sharedManager getFollowersOf:self.searchTextField.text atPage:@1 completion:^(NSMutableArray *followers) {
+            [self.navigationController pushViewController:[[FollowersListVC alloc]
+                                                           initWithUsername:self.searchTextField.text
+                                                           andWithFollowers:followers] animated:YES];
+        }];
     }
 }
 
@@ -68,7 +72,7 @@
     self.searchTextField.delegate   = self;
     self.searchButton               = [[GFButton alloc] initWithMessage:@"Search user"
                                                    withBackgroundColour:[UIColor systemGreenColor]];
-    NetworkManager *sharedManager = [NetworkManager sharedManager];
+    self.sharedManager = [NetworkManager sharedManager];
 }
 
 
