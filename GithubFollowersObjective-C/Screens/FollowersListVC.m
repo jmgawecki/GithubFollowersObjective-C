@@ -30,7 +30,18 @@
     if (self = [super init]) {
         self.username = username;
         self.title = username;
-        self.followersArray = [[NSMutableArray alloc] initWithObjects:followers, nil];
+        /// For some reason, this declaration made it impossible to read and it just did not work
+//        self.followersArray = [[NSMutableArray alloc] initWithObjects:followers, nil];
+        /// Correct way of doing so
+        /// But is there any better?
+        self.followersArray = [NSMutableArray new];
+        self.followersArray = followers;
+        
+        Follower *test = [self.followersArray firstObject];
+        
+        NSLog(@"%@", test.login);
+        
+        
     }
     return self;
 }
@@ -50,7 +61,8 @@
     [self.view addSubview:self.followersCollectionView];
     self.view.translatesAutoresizingMaskIntoConstraints = NO;
     self.followersCollectionView.backgroundColor        = [UIColor systemBackgroundColor];
-    [self.followersCollectionView registerNib:FollowerCell.self forCellWithReuseIdentifier:@"FollowerCell"];
+//    [self.followersCollectionView registerNib:FollowerCell.self forCellWithReuseIdentifier:@"FollowerCell"];
+    [self.followersCollectionView registerClass:FollowerCell.self forCellWithReuseIdentifier:@"FollowerCell"];
     self.followersCollectionView.delegate               = self;
     self.followersCollectionView.dataSource             = self;
 }
@@ -84,10 +96,23 @@
     return self.followersArray.count;
 }
 
+
+
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cellForItemAtIndexPath executed");
-    FollowerCell *cell = [[FollowerCell alloc] init];
+    FollowerCell *cell = [self.followersCollectionView dequeueReusableCellWithReuseIdentifier:@"FollowerCell" forIndexPath:indexPath];
+    Follower *follower = [self.followersArray objectAtIndex:indexPath.item];
+    
+    
+    NSLog(@"%@",follower.login);
+    
+    
+    
+    
+    [cell setOnFollower:follower];
     return cell;
+    
+    
 }
 
 

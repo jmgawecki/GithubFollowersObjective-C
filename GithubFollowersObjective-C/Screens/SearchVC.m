@@ -51,6 +51,10 @@
         self.followersArray = [NSMutableArray new];
         
         [self.sharedManager getFollowersOf:self.searchTextField.text atPage:@1 completion:^(NSMutableArray *followers) {
+            
+            Follower *test = [followers firstObject];
+            NSLog(@"%@", test.login);
+            
             [self.navigationController pushViewController:[[FollowersListVC alloc]
                                                            initWithUsername:self.searchTextField.text
                                                            andWithFollowers:followers] animated:YES];
