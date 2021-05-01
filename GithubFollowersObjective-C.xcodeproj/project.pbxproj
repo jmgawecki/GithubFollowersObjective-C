@@ -29,6 +29,8 @@
 		EF6A6148263C3804007BF040 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6147263C3804007BF040 /* NetworkManager.m */; };
 		EF6A614A263C476E007BF040 /* NetworkManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6149263C476D007BF040 /* NetworkManagerTests.m */; };
 		EF6A614D263D6925007BF040 /* Follower.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A614C263D6925007BF040 /* Follower.m */; };
+		EF6A6152263D71DE007BF040 /* FollowersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6151263D71DE007BF040 /* FollowersCollectionView.swift */; };
+		EF6A615C263D85B8007BF040 /* FollowerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A615B263D85B8007BF040 /* FollowerCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,10 @@
 		EF6A6149263C476D007BF040 /* NetworkManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManagerTests.m; sourceTree = "<group>"; };
 		EF6A614B263D6925007BF040 /* Follower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Follower.h; sourceTree = "<group>"; };
 		EF6A614C263D6925007BF040 /* Follower.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Follower.m; sourceTree = "<group>"; };
+		EF6A6150263D71DE007BF040 /* GithubFollowersObjective-C-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GithubFollowersObjective-C-Bridging-Header.h"; sourceTree = "<group>"; };
+		EF6A6151263D71DE007BF040 /* FollowersCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCollectionView.swift; sourceTree = "<group>"; };
+		EF6A615A263D85B8007BF040 /* FollowerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FollowerCell.h; sourceTree = "<group>"; };
+		EF6A615B263D85B8007BF040 /* FollowerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowerCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +208,7 @@
 		EF6A6117263B29CA007BF040 /* Custom View */ = {
 			isa = PBXGroup;
 			children = (
+				EF6A614E263D71C8007BF040 /* Collection View */,
 				EF6A6138263B6074007BF040 /* Label */,
 				EF6A6134263B5EFC007BF040 /* Image View */,
 				EF6A612F263B5BDF007BF040 /* Cell */,
@@ -242,6 +249,7 @@
 		EF6A612F263B5BDF007BF040 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				EF6A6156263D83E0007BF040 /* Collection View */,
 				EF6A6130263B5BE3007BF040 /* Table View */,
 			);
 			path = Cell;
@@ -292,6 +300,32 @@
 				EF6A6147263C3804007BF040 /* NetworkManager.m */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		EF6A614E263D71C8007BF040 /* Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A614F263D71CF007BF040 /* Swift */,
+			);
+			path = "Collection View";
+			sourceTree = "<group>";
+		};
+		EF6A614F263D71CF007BF040 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A6151263D71DE007BF040 /* FollowersCollectionView.swift */,
+				EF6A6150263D71DE007BF040 /* GithubFollowersObjective-C-Bridging-Header.h */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		EF6A6156263D83E0007BF040 /* Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A615A263D85B8007BF040 /* FollowerCell.h */,
+				EF6A615B263D85B8007BF040 /* FollowerCell.m */,
+			);
+			path = "Collection View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +394,7 @@
 				TargetAttributes = {
 					EF6A60D7263B2100007BF040 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					EF6A60F2263B2101007BF040 = {
 						CreatedOnToolsVersion = 12.5;
@@ -435,8 +470,10 @@
 				EF6A6148263C3804007BF040 /* NetworkManager.m in Sources */,
 				EF6A6133263B5C0D007BF040 /* FavouritesCell.m in Sources */,
 				EF6A60E0263B2100007BF040 /* SceneDelegate.m in Sources */,
+				EF6A6152263D71DE007BF040 /* FollowersCollectionView.swift in Sources */,
 				EF6A612B263B439B007BF040 /* GFTextField.m in Sources */,
 				EF6A612E263B4BBB007BF040 /* FollowersListVC.m in Sources */,
+				EF6A615C263D85B8007BF040 /* FollowerCell.m in Sources */,
 				EF6A6127263B3FEE007BF040 /* GFButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,7 +648,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9HHDDYFD2W;
 				INFOPLIST_FILE = "GithubFollowersObjective-C/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -620,6 +659,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jmg.GithubFollowersObjective-C";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GithubFollowersObjective-C/Custom View/Collection View/Swift/GithubFollowersObjective-C-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -629,7 +671,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9HHDDYFD2W;
 				INFOPLIST_FILE = "GithubFollowersObjective-C/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -638,6 +682,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jmg.GithubFollowersObjective-C";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GithubFollowersObjective-C/Custom View/Collection View/Swift/GithubFollowersObjective-C-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -645,6 +691,7 @@
 		EF6A610B263B2101007BF040 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9HHDDYFD2W;
@@ -665,6 +712,7 @@
 		EF6A610C263B2101007BF040 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9HHDDYFD2W;
@@ -685,6 +733,7 @@
 		EF6A610E263B2101007BF040 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9HHDDYFD2W;
 				INFOPLIST_FILE = "GithubFollowersObjective-CUITests/Info.plist";
@@ -703,6 +752,7 @@
 		EF6A610F263B2101007BF040 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9HHDDYFD2W;
 				INFOPLIST_FILE = "GithubFollowersObjective-CUITests/Info.plist";

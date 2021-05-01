@@ -26,7 +26,8 @@ static NSString *_reuseID = nil;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    [self instantiateUIElements];
+    [self configureFollowerCell];
 }
 
 

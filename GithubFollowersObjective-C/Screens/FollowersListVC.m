@@ -16,6 +16,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureVC];
+    [self configureFollowersCollectionView];
 }
 
 
@@ -33,6 +34,7 @@
     return self;
 }
 
+// MARK: - Configuration
 
 - (void)configureVC {
     self.view.backgroundColor = [UIColor systemBackgroundColor];
@@ -40,6 +42,41 @@
     self.navigationController.navigationBar.prefersLargeTitles = YES;
 }
 
+
+- (void)configureFollowersCollectionView {
+    self.followersCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds
+                                                      collectionViewLayout:[self createThreeColumnLayout]];
+    [self.followersCollectionView registerNib:FollowerCell.self forCellWithReuseIdentifier:FollowerCell.reuseID];
+}
+
+
+- (UICollectionViewFlowLayout*)createThreeColumnLayout {
+    CGFloat width               = self.view.bounds.size.width;
+    CGFloat padding             = 12;
+    CGFloat minimumItemSpacing  = 10;
+    CGFloat availableWidth      = width - (padding * 2) - (minimumItemSpacing * 2);
+    CGFloat itemWidth           = availableWidth / 3;
+    
+    UICollectionViewFlowLayout *flowLayout  = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.sectionInset                 = UIEdgeInsetsMake(padding, padding, padding, padding);
+    flowLayout.itemSize                     = CGSizeMake(itemWidth, itemWidth + 40);
+    
+    return flowLayout;
+}
+
+
+
+// MARK - UICollectionView Delegate
+
+
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.followersArray.count;
+}
 
 
 @end

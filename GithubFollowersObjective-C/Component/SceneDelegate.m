@@ -6,6 +6,7 @@
 //
 
 #import "SceneDelegate.h"
+#import "GithubFollowersObjective-C-Bridging-Header.h"
 
 @interface SceneDelegate ()
 
