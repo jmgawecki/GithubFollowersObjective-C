@@ -21,10 +21,15 @@ static NSString *_reuseID = nil;
 
 // MARK: - Initialise and Instantiate
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    [self instantiateUIElements];
-    [self configureFollowerCell];
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self instantiateUIElements];
+        [self configureFollowerCell];
+    }
+    return self;
 }
 
 
@@ -32,7 +37,7 @@ static NSString *_reuseID = nil;
 
 - (void)setOnFollower:(Follower *)follower {
     self.usernameLabel.text = follower.login;
-    // Remember to place your downloadimagefunction here
+    self.avatarImageView.image = [self.sharedManager downloadImageFromUrl:follower.avatarUrl];
 }
 
 
@@ -40,15 +45,18 @@ static NSString *_reuseID = nil;
 
 
 - (void)instantiateUIElements {
-    self.avatarImageView = [[GFAvatarImageView alloc] init];
-    CGFloat fontSize = 16;
-    NSTextAlignment center = NSTextAlignmentCenter;
-    self.usernameLabel = [[GFTitleLabel alloc] initWithTextAlignment:&center
-                                                         andFontSize:&fontSize];
+    self.avatarImageView    = [[GFAvatarImageView alloc] init];
+    CGFloat fontSize        = 16;
+    NSTextAlignment center  = NSTextAlignmentCenter;
+    self.usernameLabel      = [[GFTitleLabel alloc] initWithTextAlignment:&center
+                                                              andFontSize:&fontSize];
+    self.sharedManager = [[NetworkManager alloc] init];
 }
 
 
 - (void)configureFollowerCell {
+    NSLog(@"Configure Cell executed");
+    self.contentView.backgroundColor = [UIColor systemRedColor];
     [self.contentView addSubview:self.avatarImageView];
     [self.contentView addSubview:self.usernameLabel];
     

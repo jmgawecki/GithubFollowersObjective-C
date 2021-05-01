@@ -62,4 +62,22 @@
 }
 
 
+-(UIImage*)downloadImageFromUrl:(NSString*)avatarUrl {
+    NSString *urlString = [NSString stringWithFormat:@"%@", avatarUrl];
+    
+    NSURL* url = [NSURL URLWithString:urlString];
+    
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options: NSDataReadingUncached error:&error];
+    
+    if (error != nil) {
+        
+    }
+    
+    UIImage *image = [UIImage imageWithData:data];
+    
+    return image;
+}
+
+
 @end

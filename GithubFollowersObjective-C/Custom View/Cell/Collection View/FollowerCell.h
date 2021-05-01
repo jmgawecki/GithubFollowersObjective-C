@@ -9,6 +9,7 @@
 #import "GFAvatarImageView.h"
 #import "GFTitleLabel.h"
 #import "Follower.h"
+#import "NetworkManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property GFAvatarImageView *avatarImageView;
 @property GFTitleLabel *usernameLabel;
+
+@property NetworkManager *sharedManager;
 
 -(void)setOnFollower:(Follower*)follower;
 
