@@ -17,7 +17,7 @@
 
 + (id)sharedManager;
 
--(void)getFollowersOf:(NSString*)user atPage:(NSNumber*)page completion:(void (^)(NSMutableArray*))follower;
+-(void)getFollowersOf:(NSString*)user atPage:(NSNumber*)page completionURL:(void (^)(NSMutableArray*, NSString*))completion;
 -(UIImage*)downloadImageFromUrl:(NSString*)avatarUrl;
 
 @end
