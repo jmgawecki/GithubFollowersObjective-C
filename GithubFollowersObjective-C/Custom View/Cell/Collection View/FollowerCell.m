@@ -50,13 +50,13 @@ static NSString *_reuseID = nil;
     NSTextAlignment center  = NSTextAlignmentCenter;
     self.usernameLabel      = [[GFTitleLabel alloc] initWithTextAlignment:&center
                                                               andFontSize:&fontSize];
-    self.sharedManager = [[NetworkManager alloc] init];
+    self.sharedManager = [NetworkManager sharedManager];
 }
 
 
 - (void)configureFollowerCell {
     NSLog(@"Configure Cell executed");
-    self.contentView.backgroundColor = [UIColor systemRedColor];
+    self.contentView.backgroundColor = [UIColor systemBackgroundColor];
     [self.contentView addSubview:self.avatarImageView];
     [self.contentView addSubview:self.usernameLabel];
     

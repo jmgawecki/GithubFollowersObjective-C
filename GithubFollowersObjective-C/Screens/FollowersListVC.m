@@ -36,7 +36,10 @@
         /// But is there any better?
         self.followersArray = [NSMutableArray new];
         self.followersArray = followers;
+        self.page           = 1;
+        self.hasMoreFollowers = YES;
         
+        self.sharedManager = [NetworkManager sharedManager];
         Follower *test = [self.followersArray firstObject];
         
         NSLog(@"%@", test.login);
@@ -102,17 +105,36 @@
     NSLog(@"cellForItemAtIndexPath executed");
     FollowerCell *cell = [self.followersCollectionView dequeueReusableCellWithReuseIdentifier:@"FollowerCell" forIndexPath:indexPath];
     Follower *follower = [self.followersArray objectAtIndex:indexPath.item];
-    
-    
-    NSLog(@"%@",follower.login);
-    
-    
-    
-    
     [cell setOnFollower:follower];
     return cell;
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    CGFloat offSetY         = scrollView.contentOffset.y;
+    CGFloat contentHeight   = scrollView.contentSize.height;
+    CGFloat height          = scrollView.frame.size.height;
     
-    
+    if (offSetY > contentHeight - height) {
+        // add guard for if has more followers
+        self.page += 1;
+        if (self.hasMoreFollowers) {
+            [self.sharedManager getFollowersOf:self.username atPage:self.page completionURL:^(NSMutableArray *followers, NSString *error) {
+                __weak typeof(self) weakSelf = self;
+                if ([followers count] < 100) {
+                    self.hasMoreFollowers = NO;
+                }
+                if (error) {
+                    NSLog(@"%@", error);
+                } else {
+                    [weakSelf.followersArray addObjectsFromArray:followers];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [weakSelf.followersCollectionView reloadData];
+                    });
+                    
+                }
+            }];
+        }
+    }
 }
 
 

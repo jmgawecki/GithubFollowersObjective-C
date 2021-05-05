@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "SearchVC.h"
 #import "GHTabbarController.h"
+#import "NetworkManager.h"
 
 @interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
 

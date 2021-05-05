@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "Follower.h"
 #import "FollowerCell.h"
-
+#import "NetworkManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *username;
 @property UICollectionView *followersCollectionView;
 @property NSMutableArray *followersArray;
+@property NetworkManager *sharedManager;
+@property BOOL hasMoreFollowers;
+@property int page;
 // MARK: - Delegates
 
 -(instancetype)initWithUsername:(NSString*)username andWithFollowers:(NSMutableArray*)followers;

@@ -25,7 +25,9 @@
 -(id)init {
     if (self = [super init]) {
         someProperty = @"Default Property Value";
-        self.cache = [[NSCache<NSString* ,UIImage*> alloc] init];
+        self.cache = [[NSCache alloc] init];
+        NSAssert(self.cache != nil, @"Cache is missing");
+        NSLog(@"Cache should be instantiated");
     }
     return self;
 }
@@ -62,8 +64,8 @@
 //    completion(jsonArray);
 //}
 
--(void)getFollowersOf:(NSString*)user atPage:(NSNumber*)page completionURL:(void (^)(NSMutableArray*, NSString*))completion {
-    NSString *urlString = [NSString stringWithFormat:@"https://api.github.com/users/%@/followers?per_page=100&page=%@", user, page];
+-(void)getFollowersOf:(NSString*)user atPage:(int)page completionURL:(void (^)(NSMutableArray*, NSString*))completion {
+    NSString *urlString = [NSString stringWithFormat:@"https://api.github.com/users/%@/followers?per_page=100&page=%d", user, page];
     NSURL *url          = [NSURL URLWithString:urlString];
     
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -75,9 +77,17 @@
         // Type cast NSURLResponse to NSHTTPURLRESPONSE
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         NSInteger statusCode            = (long)[httpResponse statusCode];
-        
+        NSLog(@"Status code is: %ld", (long)statusCode);
         if (statusCode != 200) {
             completion(nil, error.localizedDescription);
+            // HEre is the error
+            // Solve it once. To do so. exceed your daily network call limit.
+            /*
+             *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[NSTaggedPointerString objectForKeyedSubscript:]: unrecognized selector sent to instance 0x9fe3adefb3854d79'
+             terminating with uncaught exception of type NSException
+             CoreSimulator 757.5 - Device: iPhone 12 mini (F3EB6386-B4C5-4027-9FFA-DCDEF278E4E5) - Runtime: iOS 14.5 (18E182) - DeviceType: iPhone 12 mini
+             (lldb)
+             */
         }
         
         if (data == nil) {
@@ -85,8 +95,11 @@
         }
         
         // Decodes the NSData into an array of dictionaries
-        NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        
+        NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if (error != nil) {
+            completion(nil, error.localizedDescription);
+        }
+//        NSLog(@"json counter is: %lu", (unsigned long)[json count]);
         NSMutableArray* jsonArray = [NSMutableArray new];
         
         // loop through each dictionary in the array
@@ -103,10 +116,6 @@
 
 
 -(UIImage*)downloadImageFromUrl:(NSString*)avatarUrl {
-    
-    if (self.cache == nil) {
-        NSLog(@"Cache is nil!");
-    }
     
     NSString *cacheKey = [NSString stringWithFormat:@"%@", avatarUrl];
     
