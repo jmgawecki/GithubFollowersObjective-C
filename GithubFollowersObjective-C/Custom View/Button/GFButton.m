@@ -38,4 +38,13 @@
     self.titleLabel.font        = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     self.translatesAutoresizingMaskIntoConstraints = NO;
 }
+
+
+// MARK: - Called outside
+
+-(void)setWithBackgroundColour:(UIColor*)backgroundColour andWithTitle:(NSString*)title {
+    self.backgroundColor = backgroundColour;
+    [self setTitle:title forState:normal];
+}
+
 @end

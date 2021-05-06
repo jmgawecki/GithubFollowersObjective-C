@@ -49,17 +49,16 @@
         NSLog(@"Username is empty!");
     } else {
         self.followersArray = [NSMutableArray new];
-        
-        [self.sharedManager getFollowersOf:self.searchTextField.text atPage:@1 completionURL:^(NSMutableArray *followers, NSString *error) {
+        [self.sharedManager getFollowersOf:self.searchTextField.text atPage:1 completionURL:^(NSMutableArray *followers, NSString *error) {
             if (followers == nil) {
                 NSLog(@"%@", error);
             } else {
-                // Weak self for dispatch queue looks like this
+                // Weak self looks like this
                 __weak typeof(self) weakSelf = self;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     // To avoid retain cycle:
                     weakSelf.followersArray = followers;
-                    
+
                     [weakSelf.navigationController pushViewController:[[FollowersListVC alloc]
                                                                    initWithUsername:self.searchTextField.text
                                                                    andWithFollowers:self.followersArray]
@@ -100,7 +99,6 @@
     
     self.logoImageView.translatesAutoresizingMaskIntoConstraints = false;
     
-    
     [NSLayoutConstraint activateConstraints:@[
         [self.logoImageView.topAnchor           constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:80],
         [self.logoImageView.centerXAnchor       constraintEqualToAnchor:self.view.centerXAnchor],
@@ -124,7 +122,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self searchButtonTapped];
-    return YES;
+    return NO;
 }
 
 

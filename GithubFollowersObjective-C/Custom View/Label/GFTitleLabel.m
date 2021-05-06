@@ -19,12 +19,12 @@
 }
 
 
-- (instancetype)initWithTextAlignment:(NSTextAlignment *)textAlignment andFontSize:(CGFloat *)fontSize {
+- (instancetype)initWithTextAlignment:(NSTextAlignment)textAlignment andFontSize:(CGFloat)fontSize {
     if (self = [super init]) {
 #warning Why does it require to use pointers with textAlignment and fontSize?
-        self.textAlignment  = *((textAlignment));
+        self.textAlignment  = textAlignment;
         self.textAlignment  = NSTextAlignmentLeft;
-        self.font           = [UIFont systemFontOfSize:*fontSize weight:bold];
+        self.font           = [UIFont systemFontOfSize:fontSize weight:bold];
         [self configure];
     }
     return self;

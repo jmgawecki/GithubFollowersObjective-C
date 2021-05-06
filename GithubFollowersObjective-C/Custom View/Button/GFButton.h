@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (instancetype)initWithMessage:(NSString *)message withBackgroundColour:(UIColor *)color;
+-(void)setWithBackgroundColour:(UIColor*)backgroundColour andWithTitle:(NSString*)title;
+
 @end
 
 NS_ASSUME_NONNULL_END

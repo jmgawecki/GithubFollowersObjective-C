@@ -17,6 +17,7 @@
     [super viewDidLoad];
     [self configureVC];
     [self configureFollowersCollectionView];
+    
 }
 
 
@@ -87,18 +88,19 @@
 
 
 
-// MARK - UICollectionView Delegate
+// MARK: - UICollectionView Delegate
+
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     NSLog(@"numberOfSectionsInCollectionView executed");
     return 1;
 }
 
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSLog(@"numberOfItemsInSection executed");
     return self.followersArray.count;
 }
-
 
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -108,6 +110,7 @@
     [cell setOnFollower:follower];
     return cell;
 }
+
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     CGFloat offSetY         = scrollView.contentOffset.y;
@@ -136,6 +139,25 @@
         }
     }
 }
+
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    Follower* follower = [self.followersArray objectAtIndex:indexPath.item];
+    [self.sharedManager getUserInfoFor:follower.login withCompletion:^(User *user, NSString *error) {
+        __weak typeof(self) weakSelf = self;
+        if (error != nil) {
+            NSLog(@"%@", error);
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.navigationController presentViewController:[[UserInfoVC alloc] initWithUser:user andWithFollower:follower] animated:YES completion:nil];
+            });
+        }
+    }];
+    
+}
+
+
+
 
 
 @end

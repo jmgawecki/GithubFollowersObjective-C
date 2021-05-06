@@ -9,6 +9,7 @@
 #import "Follower.h"
 #import "FollowerCell.h"
 #import "NetworkManager.h"
+#import "UserInfoVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

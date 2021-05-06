@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GFTitleLabel : UILabel
 
--(instancetype)initWithTextAlignment:(NSTextAlignment *)textAlignment andFontSize:(CGFloat *)fontSize;
+-(instancetype)initWithTextAlignment:(NSTextAlignment)textAlignment andFontSize:(CGFloat)fontSize;
 
 @end
 

@@ -72,6 +72,7 @@
         
         if (error != nil) {
             completion(nil, error.localizedDescription);
+            return;
         }
         
         // Type cast NSURLResponse to NSHTTPURLRESPONSE
@@ -79,25 +80,21 @@
         NSInteger statusCode            = (long)[httpResponse statusCode];
         NSLog(@"Status code is: %ld", (long)statusCode);
         if (statusCode != 200) {
+            NSLog(@"%@", error.localizedDescription);
             completion(nil, error.localizedDescription);
-            // HEre is the error
-            // Solve it once. To do so. exceed your daily network call limit.
-            /*
-             *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[NSTaggedPointerString objectForKeyedSubscript:]: unrecognized selector sent to instance 0x9fe3adefb3854d79'
-             terminating with uncaught exception of type NSException
-             CoreSimulator 757.5 - Device: iPhone 12 mini (F3EB6386-B4C5-4027-9FFA-DCDEF278E4E5) - Runtime: iOS 14.5 (18E182) - DeviceType: iPhone 12 mini
-             (lldb)
-             */
+            return;
         }
         
         if (data == nil) {
             completion(nil, error.localizedDescription);
+            return;
         }
         
         // Decodes the NSData into an array of dictionaries
         NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         if (error != nil) {
             completion(nil, error.localizedDescription);
+            return;
         }
 //        NSLog(@"json counter is: %lu", (unsigned long)[json count]);
         NSMutableArray* jsonArray = [NSMutableArray new];
@@ -143,6 +140,62 @@
     [self.cache setObject:image forKey:cacheKey];
     
     return image;
+}
+
+-(void)getUserInfoFor:(NSString*)username withCompletion:(void (^)(User*, NSString*))completion {
+    NSString* urlString = [NSString stringWithFormat:@"https://api.github.com/users/%@", username];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSURLSessionDataTask* dataTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error != nil) {
+            completion(nil, error.localizedDescription);
+            return;
+        }
+        // Typcasting NSURLResponse to NSHTTPURLResponse
+        // NSHTTPURLResponse is a subclass of NSURLResponse
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        NSInteger statusCode = httpResponse.statusCode;
+        if (statusCode != 200) {
+            completion(nil, error.localizedDescription);
+            return;
+        }
+        
+        if (data == nil) {
+            completion(nil, error.localizedDescription);
+            return;
+        }
+        
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        
+        if (error != nil) {
+            completion(nil, error.localizedDescription);
+            return;
+        }
+        
+        User* user = [[User alloc] initWithLogin:json[@"login"]
+                                       avatarURL:json[@"avatar_url"]
+                                            name:[self valueOrNil:json[@"name"]]
+                                        location:[self valueOrNil:json[@"location"]]
+                                             bio:[self valueOrNil:json[@"bio"]]
+                                     publicRepos:json[@"public_repos"]
+                                     publicGists:json[@"public_gists"]
+                                         htmlUrl:json[@"html_url"]
+                                       followers:json[@"followers"]
+                                       following:json[@"following"]
+                                       createdAt:json[@"created_at"]];
+        NSLog(@"%@", user);
+        completion(user, nil);
+    }];
+    [dataTask resume];
+}
+
+// Call this method on every bit of JSON you're converting to Objective-C. This will either return the right value or return nil. I'm using this as a static method, but you can also make a category on NSDictionary, if you prefer that.
+- (id)valueOrNil:(id)value {
+    if ([value isMemberOfClass:[NSNull class]]) {
+        return nil;
+    }
+    return value;
 }
 
 

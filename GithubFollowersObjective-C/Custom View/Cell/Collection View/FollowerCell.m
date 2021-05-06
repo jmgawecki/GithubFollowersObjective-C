@@ -48,8 +48,8 @@ static NSString *_reuseID = nil;
     self.avatarImageView    = [[GFAvatarImageView alloc] init];
     CGFloat fontSize        = 16;
     NSTextAlignment center  = NSTextAlignmentCenter;
-    self.usernameLabel      = [[GFTitleLabel alloc] initWithTextAlignment:&center
-                                                              andFontSize:&fontSize];
+    self.usernameLabel      = [[GFTitleLabel alloc] initWithTextAlignment:center
+                                                              andFontSize:fontSize];
     self.sharedManager = [NetworkManager sharedManager];
 }
 

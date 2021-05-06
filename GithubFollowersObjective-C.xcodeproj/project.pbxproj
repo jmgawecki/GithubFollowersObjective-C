@@ -32,6 +32,14 @@
 		EF6A6152263D71DE007BF040 /* FollowersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6151263D71DE007BF040 /* FollowersCollectionView.swift */; };
 		EF6A615C263D85B8007BF040 /* FollowerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A615B263D85B8007BF040 /* FollowerCell.m */; };
 		EF6A615E263D9877007BF040 /* FollowersListVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A615D263D9877007BF040 /* FollowersListVCTests.m */; };
+		EF6A61612642BA49007BF040 /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A61602642BA49007BF040 /* UserInfoVC.m */; };
+		EF6A61652642C6A2007BF040 /* GFItemInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A61642642C6A2007BF040 /* GFItemInfoView.m */; };
+		EF6A616A2642CB6F007BF040 /* GFItemInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A61692642CB6F007BF040 /* GFItemInfoVC.m */; };
+		EF6A616E2642CFAE007BF040 /* GFRepoItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A616D2642CFAE007BF040 /* GFRepoItemVC.m */; };
+		EF6A61742642E116007BF040 /* GFFollowerItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A61732642E116007BF040 /* GFFollowerItemVC.m */; };
+		EF6A61772642E1A2007BF040 /* GFBodyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A61762642E1A2007BF040 /* GFBodyLabel.m */; };
+		EF6A617B2642E5BF007BF040 /* GFUserInfoHeaderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A617A2642E5BF007BF040 /* GFUserInfoHeaderVC.m */; };
+		EF6A617E2642E5FA007BF040 /* GFSecondaryTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A617D2642E5FA007BF040 /* GFSecondaryTitleLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +107,22 @@
 		EF6A615A263D85B8007BF040 /* FollowerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FollowerCell.h; sourceTree = "<group>"; };
 		EF6A615B263D85B8007BF040 /* FollowerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowerCell.m; sourceTree = "<group>"; };
 		EF6A615D263D9877007BF040 /* FollowersListVCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowersListVCTests.m; sourceTree = "<group>"; };
+		EF6A615F2642BA49007BF040 /* UserInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoVC.h; sourceTree = "<group>"; };
+		EF6A61602642BA49007BF040 /* UserInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoVC.m; sourceTree = "<group>"; };
+		EF6A61632642C6A2007BF040 /* GFItemInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFItemInfoView.h; sourceTree = "<group>"; };
+		EF6A61642642C6A2007BF040 /* GFItemInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFItemInfoView.m; sourceTree = "<group>"; };
+		EF6A61682642CB6E007BF040 /* GFItemInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFItemInfoVC.h; sourceTree = "<group>"; };
+		EF6A61692642CB6F007BF040 /* GFItemInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFItemInfoVC.m; sourceTree = "<group>"; };
+		EF6A616C2642CFAE007BF040 /* GFRepoItemVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFRepoItemVC.h; sourceTree = "<group>"; };
+		EF6A616D2642CFAE007BF040 /* GFRepoItemVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFRepoItemVC.m; sourceTree = "<group>"; };
+		EF6A61722642E116007BF040 /* GFFollowerItemVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFFollowerItemVC.h; sourceTree = "<group>"; };
+		EF6A61732642E116007BF040 /* GFFollowerItemVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFFollowerItemVC.m; sourceTree = "<group>"; };
+		EF6A61752642E1A2007BF040 /* GFBodyLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFBodyLabel.h; sourceTree = "<group>"; };
+		EF6A61762642E1A2007BF040 /* GFBodyLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFBodyLabel.m; sourceTree = "<group>"; };
+		EF6A61792642E5BF007BF040 /* GFUserInfoHeaderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFUserInfoHeaderVC.h; sourceTree = "<group>"; };
+		EF6A617A2642E5BF007BF040 /* GFUserInfoHeaderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFUserInfoHeaderVC.m; sourceTree = "<group>"; };
+		EF6A617C2642E5FA007BF040 /* GFSecondaryTitleLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFSecondaryTitleLabel.h; sourceTree = "<group>"; };
+		EF6A617D2642E5FA007BF040 /* GFSecondaryTitleLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSecondaryTitleLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +228,8 @@
 				EF6A611F263B2D83007BF040 /* FavouritesVC.m */,
 				EF6A612C263B4BBB007BF040 /* FollowersListVC.h */,
 				EF6A612D263B4BBB007BF040 /* FollowersListVC.m */,
+				EF6A615F2642BA49007BF040 /* UserInfoVC.h */,
+				EF6A61602642BA49007BF040 /* UserInfoVC.m */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -211,6 +237,8 @@
 		EF6A6117263B29CA007BF040 /* Custom View */ = {
 			isa = PBXGroup;
 			children = (
+				EF6A61782642E5A9007BF040 /* View Controller */,
+				EF6A61622642C68F007BF040 /* View */,
 				EF6A614E263D71C8007BF040 /* Collection View */,
 				EF6A6138263B6074007BF040 /* Label */,
 				EF6A6134263B5EFC007BF040 /* Image View */,
@@ -281,6 +309,10 @@
 			children = (
 				EF6A6139263B6081007BF040 /* GFTitleLabel.h */,
 				EF6A613A263B6081007BF040 /* GFTitleLabel.m */,
+				EF6A61752642E1A2007BF040 /* GFBodyLabel.h */,
+				EF6A61762642E1A2007BF040 /* GFBodyLabel.m */,
+				EF6A617C2642E5FA007BF040 /* GFSecondaryTitleLabel.h */,
+				EF6A617D2642E5FA007BF040 /* GFSecondaryTitleLabel.m */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -329,6 +361,54 @@
 				EF6A615B263D85B8007BF040 /* FollowerCell.m */,
 			);
 			path = "Collection View";
+			sourceTree = "<group>";
+		};
+		EF6A61622642C68F007BF040 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A61632642C6A2007BF040 /* GFItemInfoView.h */,
+				EF6A61642642C6A2007BF040 /* GFItemInfoView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EF6A61662642CB55007BF040 /* ItemInfo VCs */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A616B2642CF97007BF040 /* Subclasses */,
+				EF6A61672642CB5E007BF040 /* Superclass */,
+			);
+			path = "ItemInfo VCs";
+			sourceTree = "<group>";
+		};
+		EF6A61672642CB5E007BF040 /* Superclass */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A61682642CB6E007BF040 /* GFItemInfoVC.h */,
+				EF6A61692642CB6F007BF040 /* GFItemInfoVC.m */,
+			);
+			path = Superclass;
+			sourceTree = "<group>";
+		};
+		EF6A616B2642CF97007BF040 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A616C2642CFAE007BF040 /* GFRepoItemVC.h */,
+				EF6A616D2642CFAE007BF040 /* GFRepoItemVC.m */,
+				EF6A61722642E116007BF040 /* GFFollowerItemVC.h */,
+				EF6A61732642E116007BF040 /* GFFollowerItemVC.m */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
+		EF6A61782642E5A9007BF040 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A61662642CB55007BF040 /* ItemInfo VCs */,
+				EF6A61792642E5BF007BF040 /* GFUserInfoHeaderVC.h */,
+				EF6A617A2642E5BF007BF040 /* GFUserInfoHeaderVC.m */,
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,16 +543,24 @@
 			files = (
 				EF6A60DD263B2100007BF040 /* AppDelegate.m in Sources */,
 				EF6A6144263B64D3007BF040 /* User.m in Sources */,
+				EF6A61772642E1A2007BF040 /* GFBodyLabel.m in Sources */,
+				EF6A616A2642CB6F007BF040 /* GFItemInfoVC.m in Sources */,
 				EF6A614D263D6925007BF040 /* Follower.m in Sources */,
 				EF6A611B263B29E9007BF040 /* GHTabbarController.m in Sources */,
 				EF6A6137263B5F0E007BF040 /* GFAvatarImageView.m in Sources */,
+				EF6A61612642BA49007BF040 /* UserInfoVC.m in Sources */,
 				EF6A6120263B2D83007BF040 /* FavouritesVC.m in Sources */,
+				EF6A617B2642E5BF007BF040 /* GFUserInfoHeaderVC.m in Sources */,
+				EF6A61742642E116007BF040 /* GFFollowerItemVC.m in Sources */,
 				EF6A613B263B6081007BF040 /* GFTitleLabel.m in Sources */,
 				EF6A60EE263B2101007BF040 /* main.m in Sources */,
 				EF6A6116263B2239007BF040 /* SearchVC.m in Sources */,
+				EF6A61652642C6A2007BF040 /* GFItemInfoView.m in Sources */,
 				EF6A6148263C3804007BF040 /* NetworkManager.m in Sources */,
 				EF6A6133263B5C0D007BF040 /* FavouritesCell.m in Sources */,
+				EF6A616E2642CFAE007BF040 /* GFRepoItemVC.m in Sources */,
 				EF6A60E0263B2100007BF040 /* SceneDelegate.m in Sources */,
+				EF6A617E2642E5FA007BF040 /* GFSecondaryTitleLabel.m in Sources */,
 				EF6A6152263D71DE007BF040 /* FollowersCollectionView.swift in Sources */,
 				EF6A612B263B439B007BF040 /* GFTextField.m in Sources */,
 				EF6A612E263B4BBB007BF040 /* FollowersListVC.m in Sources */,
