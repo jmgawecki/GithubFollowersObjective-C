@@ -6,6 +6,7 @@
 //
 
 #import "UserInfoVC.h"
+#import "UIViewController+Ext.h"
 
 @interface UserInfoVC ()
 
@@ -24,21 +25,22 @@
 }
 
 
-- (instancetype)initWithUser:(User *)user andWithFollower:(Follower*)follower {
+- (instancetype)initWithUser:(User *)user andWithFollower:(Follower*)follower andWithDelegate:(nonnull id<UserInfoVCDelegate>)delegate {
     if (self = [super init]) {
-        self.user = user;
-        self.follower = follower;
-        NSLog(@"%@", user.avatarUrl);
-        NSLog(@"%@", user.bio); // nil check
-        NSLog(@"%@", user.createdAt);
-        NSLog(@"%@", user.followers);
-        NSLog(@"%@", user.following);
-        NSLog(@"%@", user.htmlUrl);
-        NSLog(@"location %@", user.location); // nil check
-        NSLog(@"login %@", user.login);
-        NSLog(@"name %@", user.name); // nil check
-        NSLog(@"%@", user.publicGists);
-        NSLog(@"%@", user.publicRepos); 
+        self.user       = user;
+        self.follower   = follower;
+        self.delegate   = delegate;
+//        NSLog(@"%@", user.avatarUrl);
+//        NSLog(@"%@", user.bio); // nil check
+//        NSLog(@"%@", user.createdAt);
+//        NSLog(@"%@", user.followers);
+//        NSLog(@"%@", user.following);
+//        NSLog(@"%@", user.htmlUrl);
+//        NSLog(@"location %@", user.location); // nil check
+//        NSLog(@"login %@", user.login);
+//        NSLog(@"name %@", user.name); // nil check
+//        NSLog(@"%@", user.publicGists);
+//        NSLog(@"%@", user.publicRepos);
     }
     return self;
 }
@@ -60,17 +62,17 @@
     
     self.dateLabel      = [[GFBodyLabel alloc] initWithAlignment:NSTextAlignmentCenter];
     
-    self.headerVC       = [[GFUserInfoHeaderVC alloc] initWithUser:self.user];
-    self.repoItemVC     = [[GFRepoItemVC alloc] initWithUser:self.user andWithDelegate:self];
-    self.followerItemVC = [[GFFollowerItemVC alloc] initWithUser:self.user andWithDelegate:self];
+    self.headerVC       = [[GFUserInfoHeaderVC alloc]   initWithUser:self.user];
+    self.repoItemVC     = [[GFRepoItemVC alloc]         initWithUser:self.user andWithDelegate:self];
+    self.followerItemVC = [[GFFollowerItemVC alloc]     initWithUser:self.user andWithDelegate:self];
     
 }
 
 
 // MARK: - Action functions
 
--(void)dismissVC {
-    [self dismissVC];
+-(void)dismissVCModally {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -78,9 +80,9 @@
 
 
 -(void)configureUIElements {
-    [self addChildVC:self.headerVC toContainerView:self.headerView];
-    [self addChildVC:self.repoItemVC toContainerView:self.itemViewOne]; 
-    [self addChildVC:self.followerItemVC toContainerView:self.itemViewTwo];
+    [self addChildVC:self.headerVC          toContainerView:self.headerView];
+    [self addChildVC:self.repoItemVC        toContainerView:self.itemViewOne];
+    [self addChildVC:self.followerItemVC    toContainerView:self.itemViewTwo];
     self.dateLabel.text = self.user.createdAt;
 }
 
@@ -127,11 +129,21 @@
 }
 
 - (void)didTapGetFollowersForUser:(User *)user {
-    NSLog(@"Success!");
+    if (self.user.followers == 0) {
+        NSLog(@"No followers for that guy, sorry");
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.delegate didRequestFollowersForUsername:user.login];
+    }
 }
 
 - (void)didTapGitHubProfileForUser:(User *)user {
-    NSLog(@"Success too!");
+   NSURL *url = [NSURL URLWithString:user.htmlUrl];
+    if (url) {
+        [self presentSafariVCWithURL:url];
+    } else {
+        NSLog(@"Bad URL!");
+    }
 }
 
 

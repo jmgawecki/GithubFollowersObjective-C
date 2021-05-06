@@ -33,13 +33,13 @@
         NSLog(@"%@", [error localizedDescription]);
     }
     
-    NSMutableArray* jsonArray = [NSMutableArray new];
+//    NSMutableArray* jsonArray = [NSMutableArray new];
     
     // loop through each dictionary in the array
-    for (NSDictionary *entry in json) {
+//    for (NSDictionary *entry in json) {
         // pull interesting data into variables
-        NSLog(@"pring");
-    }
+//        NSLog(@"pring");
+//    }
 }
 
 -(void)testGetFollowersOfSallen0400ForPage1 {

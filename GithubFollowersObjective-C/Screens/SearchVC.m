@@ -49,6 +49,7 @@
         NSLog(@"Username is empty!");
     } else {
         self.followersArray = [NSMutableArray new];
+        [self.loadingVC showLoadingViewOnTheView:self.view];
         [self.sharedManager getFollowersOf:self.searchTextField.text atPage:1 completionURL:^(NSMutableArray *followers, NSString *error) {
             if (followers == nil) {
                 NSLog(@"%@", error);
@@ -63,6 +64,7 @@
                                                                    initWithUsername:self.searchTextField.text
                                                                    andWithFollowers:self.followersArray]
                                                          animated:YES];
+                    [weakSelf.loadingVC dismissLoadingView];
                 });
             }
         }];
@@ -84,6 +86,7 @@
     self.searchButton               = [[GFButton alloc] initWithMessage:@"Search user"
                                                    withBackgroundColour:[UIColor systemGreenColor]];
     self.sharedManager = [NetworkManager sharedManager];
+    self.loadingVC = [[GFLoadingVC alloc] init];
 }
 
 

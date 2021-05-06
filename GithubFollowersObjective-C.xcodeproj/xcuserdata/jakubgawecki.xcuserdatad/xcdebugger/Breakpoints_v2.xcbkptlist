@@ -14,8 +14,8 @@
             filePath = "GithubFollowersObjective-C/Screens/FollowersListVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "-initWithUsername:andWithFollowers:"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "GithubFollowersObjective-C/Screens/FollowersListVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-initWithUsername:andWithFollowers:"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "GithubFollowersObjective-C/Screens/FollowersListVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "-initWithUsername:andWithFollowers:"
             landmarkType = "7">
          </BreakpointContent>
@@ -161,6 +161,166 @@
             startingLineNumber = "74"
             endingLineNumber = "74"
             landmarkName = "-configureUIElements"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "33BEB8CC-6AB4-4C72-8DBC-9C720A4CFDFD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubFollowersObjective-C/Custom View/View Controller/GFLoadingVC/GFLoadingVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "-showLoadingViewOnTheView:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C2BE079-1962-479E-BFE9-D5666D1B9D12"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubFollowersObjective-C/Custom View/View Controller/GFLoadingVC/GFLoadingVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-showLoadingViewOnTheView:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DA16265-A7E3-47E3-9E12-4360AF7A729F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubFollowersObjective-C/Custom View/View Controller/GFLoadingVC/GFLoadingVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "-showLoadingViewOnTheView:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3DA16265-A7E3-47E3-9E12-4360AF7A729F - 7f8d2b04377181a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GFLoadingVC showLoadingViewOnTheView:]"
+                  moduleName = "GithubFollowersObjective-C"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jakubgawecki/Desktop/ObjectiveC/GithubFollowersObjective-C/GithubFollowersObjective-C/Custom%20View/View%20Controller/GFLoadingVC/GFLoadingVC.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  uuid = "3DA16265-A7E3-47E3-9E12-4360AF7A729F - 68a2ec5425ade1a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__40-[GFLoadingVC showLoadingViewOnTheView:]_block_invoke"
+                  moduleName = "GithubFollowersObjective-C"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jakubgawecki/Desktop/ObjectiveC/GithubFollowersObjective-C/GithubFollowersObjective-C/Custom%20View/View%20Controller/GFLoadingVC/GFLoadingVC.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "68FB0063-7959-440B-8EB8-A26AF880C6B4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubFollowersObjective-C/Custom View/View Controller/GFLoadingVC/GFLoadingVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "-showLoadingViewOnTheView:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7642D3DB-9D1D-469B-95EC-9DC2A3D3C36C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubFollowersObjective-C/Custom View/View Controller/GFLoadingVC/GFLoadingVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "-showLoadingViewOnTheView:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5A7A6200-1300-407B-9F7D-D23A946455A3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubFollowersObjective-C/Custom View/View Controller/GFLoadingVC/GFLoadingVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-showLoadingViewOnTheView:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63F4C788-BED8-4660-ABD9-19B61E4D9D64"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubFollowersObjective-C/Custom View/View Controller/GFLoadingVC/GFLoadingVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-showLoadingViewOnTheView:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A865F653-7B44-4157-AB13-55E7BD688C79"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubFollowersObjective-C/Custom View/View Controller/GFLoadingVC/GFLoadingVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "-showLoadingViewOnTheView:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

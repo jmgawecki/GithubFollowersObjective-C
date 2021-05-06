@@ -40,6 +40,8 @@
 		EF6A61772642E1A2007BF040 /* GFBodyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A61762642E1A2007BF040 /* GFBodyLabel.m */; };
 		EF6A617B2642E5BF007BF040 /* GFUserInfoHeaderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A617A2642E5BF007BF040 /* GFUserInfoHeaderVC.m */; };
 		EF6A617E2642E5FA007BF040 /* GFSecondaryTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A617D2642E5FA007BF040 /* GFSecondaryTitleLabel.m */; };
+		EF6A618226440703007BF040 /* UIViewController+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A618126440703007BF040 /* UIViewController+Ext.m */; };
+		EF6A61862644194A007BF040 /* GFLoadingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A61852644194A007BF040 /* GFLoadingVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +125,10 @@
 		EF6A617A2642E5BF007BF040 /* GFUserInfoHeaderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFUserInfoHeaderVC.m; sourceTree = "<group>"; };
 		EF6A617C2642E5FA007BF040 /* GFSecondaryTitleLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFSecondaryTitleLabel.h; sourceTree = "<group>"; };
 		EF6A617D2642E5FA007BF040 /* GFSecondaryTitleLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSecondaryTitleLabel.m; sourceTree = "<group>"; };
+		EF6A618026440703007BF040 /* UIViewController+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Ext.h"; sourceTree = "<group>"; };
+		EF6A618126440703007BF040 /* UIViewController+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Ext.m"; sourceTree = "<group>"; };
+		EF6A61842644194A007BF040 /* GFLoadingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFLoadingVC.h; sourceTree = "<group>"; };
+		EF6A61852644194A007BF040 /* GFLoadingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFLoadingVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,7 @@
 		EF6A60DA263B2100007BF040 /* GithubFollowersObjective-C */ = {
 			isa = PBXGroup;
 			children = (
+				EF6A617F264406E2007BF040 /* Extension */,
 				EF6A6145263C37AF007BF040 /* Manager */,
 				EF6A613C263B6437007BF040 /* Model */,
 				EF6A6117263B29CA007BF040 /* Custom View */,
@@ -404,11 +411,30 @@
 		EF6A61782642E5A9007BF040 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EF6A618326441939007BF040 /* GFLoadingVC */,
 				EF6A61662642CB55007BF040 /* ItemInfo VCs */,
 				EF6A61792642E5BF007BF040 /* GFUserInfoHeaderVC.h */,
 				EF6A617A2642E5BF007BF040 /* GFUserInfoHeaderVC.m */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		EF6A617F264406E2007BF040 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A618026440703007BF040 /* UIViewController+Ext.h */,
+				EF6A618126440703007BF040 /* UIViewController+Ext.m */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		EF6A618326441939007BF040 /* GFLoadingVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A61842644194A007BF040 /* GFLoadingVC.h */,
+				EF6A61852644194A007BF040 /* GFLoadingVC.m */,
+			);
+			path = GFLoadingVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,8 +567,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF6A618226440703007BF040 /* UIViewController+Ext.m in Sources */,
 				EF6A60DD263B2100007BF040 /* AppDelegate.m in Sources */,
 				EF6A6144263B64D3007BF040 /* User.m in Sources */,
+				EF6A61862644194A007BF040 /* GFLoadingVC.m in Sources */,
 				EF6A61772642E1A2007BF040 /* GFBodyLabel.m in Sources */,
 				EF6A616A2642CB6F007BF040 /* GFItemInfoVC.m in Sources */,
 				EF6A614D263D6925007BF040 /* Follower.m in Sources */,

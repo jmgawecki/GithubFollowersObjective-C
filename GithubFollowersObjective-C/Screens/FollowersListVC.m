@@ -13,19 +13,25 @@
 
 @implementation FollowersListVC
 
+// MARK: - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureVC];
+    [self instantiateUIElements];
     [self configureFollowersCollectionView];
     
 }
-
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationController.navigationBar.prefersLargeTitles = YES;
 }
+
+
+// MARK: - Initialize
+
 
 - (instancetype)initWithUsername:(NSString *)username andWithFollowers:(nonnull NSMutableArray *)followers {
     if (self = [super init]) {
@@ -50,12 +56,19 @@
     return self;
 }
 
+
 // MARK: - Configuration
+
 
 - (void)configureVC {
     self.view.backgroundColor = [UIColor systemBackgroundColor];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationController.navigationBar.prefersLargeTitles = YES;
+}
+
+
+- (void)instantiateUIElements {
+    self.progressVC = [[GFLoadingVC alloc] init];
 }
 
 
@@ -121,15 +134,17 @@
         // add guard for if has more followers
         self.page += 1;
         if (self.hasMoreFollowers) {
+            [self.progressVC showLoadingViewOnTheView:self.view];
             [self.sharedManager getFollowersOf:self.username atPage:self.page completionURL:^(NSMutableArray *followers, NSString *error) {
                 __weak typeof(self) weakSelf = self;
                 if ([followers count] < 100) {
-                    self.hasMoreFollowers = NO;
+                    weakSelf.hasMoreFollowers = NO;
                 }
                 if (error) {
                     NSLog(@"%@", error);
                 } else {
                     [weakSelf.followersArray addObjectsFromArray:followers];
+                    [weakSelf.progressVC dismissLoadingView];
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [weakSelf.followersCollectionView reloadData];
                     });
@@ -149,11 +164,40 @@
             NSLog(@"%@", error);
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.navigationController presentViewController:[[UserInfoVC alloc] initWithUser:user andWithFollower:follower] animated:YES completion:nil];
+                [weakSelf.navigationController presentViewController:[[UserInfoVC alloc] initWithUser:user andWithFollower:follower andWithDelegate:self] animated:YES completion:nil];
             });
         }
     }];
     
+}
+
+
+// MARK: - UserInfoVC Delegates
+
+- (void)didRequestFollowersForUsername:(NSString *)username {
+    self.username           = username;
+    self.title              = username;
+    self.page               = 1;
+    self.hasMoreFollowers   = YES;
+    NSLog(@"EXECUTED");
+    [self.followersArray removeAllObjects];
+    [self.followersCollectionView scrollsToTop];
+    [self.progressVC showLoadingViewOnTheView:self.view];
+    [self.sharedManager getFollowersOf:username atPage:self.page completionURL:^(NSMutableArray *followers, NSString *error) {
+        __weak typeof(self) weakSelf = self;
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            if ([followers count] < 100) {
+                self.hasMoreFollowers = NO;
+            }
+            weakSelf.followersArray = followers;
+            [weakSelf.progressVC dismissLoadingView];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.followersCollectionView reloadData];
+            });
+        }
+    }];
 }
 
 

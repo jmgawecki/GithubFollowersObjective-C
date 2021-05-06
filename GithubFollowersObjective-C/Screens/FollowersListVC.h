@@ -10,16 +10,22 @@
 #import "FollowerCell.h"
 #import "NetworkManager.h"
 #import "UserInfoVC.h"
+#import "GFLoadingVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FollowersListVC : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
-@property NSString *username;
-@property UICollectionView *followersCollectionView;
-@property NSMutableArray *followersArray;
-@property NetworkManager *sharedManager;
-@property BOOL hasMoreFollowers;
-@property int page;
+@interface FollowersListVC : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UserInfoVCDelegate>
+@property (nonatomic)UICollectionView   *followersCollectionView;
+@property (nonatomic)GFLoadingVC        *progressVC;
+
+@property NetworkManager    *sharedManager;
+
+@property NSMutableArray    *followersArray;
+@property NSString          *username;
+@property int               page;
+@property BOOL              hasMoreFollowers;
+
+
 // MARK: - Delegates
 
 -(instancetype)initWithUsername:(NSString*)username andWithFollowers:(NSMutableArray*)followers;

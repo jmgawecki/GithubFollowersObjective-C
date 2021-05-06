@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<UserInfoVCDelegate>delegate;
 
-- (instancetype)initWithUser:(User*)user andWithFollower:(Follower*)follower;
+- (instancetype)initWithUser:(User*)user andWithFollower:(Follower*)follower andWithDelegate:(id<UserInfoVCDelegate>)delegate;
 
 @end
 

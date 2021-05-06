@@ -10,6 +10,7 @@
 #import "GFTextField.h"
 #import "FollowersListVC.h"
 #import "NetworkManager.h"
+#import "GFLoadingVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property UIImageView   *logoImageView;
 @property NetworkManager *sharedManager;
 @property NSMutableArray *followersArray;
+@property GFLoadingVC *loadingVC;
 
 @end
 

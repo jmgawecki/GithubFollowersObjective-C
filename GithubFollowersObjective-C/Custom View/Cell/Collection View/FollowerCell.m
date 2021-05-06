@@ -36,8 +36,11 @@ static NSString *_reuseID = nil;
 // MARK: - Called outside
 
 - (void)setOnFollower:(Follower *)follower {
-    self.usernameLabel.text = follower.login;
-    self.avatarImageView.image = [self.sharedManager downloadImageFromUrl:follower.avatarUrl];
+    UIImage *profilePic = [self.sharedManager downloadImageFromUrl:follower.avatarUrl];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.usernameLabel.text = follower.login;
+        self.avatarImageView.image = profilePic;
+    });
 }
 
 
@@ -55,7 +58,6 @@ static NSString *_reuseID = nil;
 
 
 - (void)configureFollowerCell {
-    NSLog(@"Configure Cell executed");
     self.contentView.backgroundColor = [UIColor systemBackgroundColor];
     [self.contentView addSubview:self.avatarImageView];
     [self.contentView addSubview:self.usernameLabel];

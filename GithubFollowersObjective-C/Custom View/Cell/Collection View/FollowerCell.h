@@ -15,12 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FollowerCell : UICollectionViewCell
 
-@property (class) NSString *reuseID;
+@property (class) NSString  *reuseID;
 
 @property GFAvatarImageView *avatarImageView;
-@property GFTitleLabel *usernameLabel;
+@property GFTitleLabel      *usernameLabel;
 
-@property NetworkManager *sharedManager;
+@property NetworkManager    *sharedManager;
 
 -(void)setOnFollower:(Follower*)follower;
 

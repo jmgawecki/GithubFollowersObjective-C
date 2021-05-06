@@ -31,7 +31,7 @@
 - (void)configureItems {
     [self.itemInfoViewOne setItemInfoType:followers withCount:self.user.followers];
     [self.itemInfoViewTwo setItemInfoType:following withCount:self.user.following];
-    [self.actionButton setWithBackgroundColour:[UIColor systemPurpleColor] andWithTitle:@"GitHub Profile"];
+    [self.actionButton setWithBackgroundColour:[UIColor systemGreenColor] andWithTitle:@"Followers"];
 }
 
 
