@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSString *someProperty;
 @property NSCache *cache;
 
-+ (id)sharedManager;
++ (NetworkManager *)sharedManager;
 -(void)getFollowersOf:(NSString*)user atPage:(int)page completionURL:(void (^)(NSMutableArray*, NSString*))completion;
 -(UIImage*)downloadImageFromUrl:(NSString*)avatarUrl;
 -(void)getUserInfoFor:(NSString*)username withCompletion:(void (^)(User*, NSString*))completion;

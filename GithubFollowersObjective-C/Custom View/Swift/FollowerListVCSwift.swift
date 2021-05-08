@@ -18,7 +18,7 @@ class FollowerListVCSwift: UIViewController {
     var followers:          [Follower]!
     var filteredFollowers:  [Follower] = []
     
-    var page                = Int(1)
+    var page                = Int32(1)
     var username:           String!
     
     var hasMoreFollowers        = true
@@ -29,7 +29,9 @@ class FollowerListVCSwift: UIViewController {
     var dataSource:         UICollectionViewDiffableDataSource<Section,Follower>!
     var snapShot:           NSDiffableDataSourceSnapshot<Section, Follower>!
     
-    let networkManager = NetworkManager.sharedManager()
+    let sharedManager = NetworkManager.shared()
+    
+    let loadingVC = GFLoadingVC()
     
     
     // MARK: - Lifecycle
@@ -76,6 +78,7 @@ class FollowerListVCSwift: UIViewController {
         collectionView = UICollectionView(frame: view.bounds,
                                           collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
+        collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
     }
     
@@ -100,6 +103,29 @@ class FollowerListVCSwift: UIViewController {
         }
     }
     
+    
+    // MARK: - Network Manager
+    
+    func getFollowers() {
+        if (hasMoreFollowers) {
+            loadingVC.showLoadingView(onTheView: view)
+            sharedManager?.getFollowersOf(username, atPage: page, completionURL: { [weak self] followers, error in
+                guard let self = self else { return }
+                guard (error == nil) else {
+                    NSLog(error!)
+                    return
+                }
+                if (followers != nil ) {
+                    if (followers?.count)! < 100 {
+                        self.hasMoreFollowers = false
+                    }
+                    self.followers.append(contentsOf: followers as! [Follower])
+                    self.updateDataOnCollection()
+                    self.loadingVC.dismissLoadingView()
+                }
+            })
+        }
+    }
 }
 
 // MARK: - UICollectionViewDelegate
@@ -113,19 +139,43 @@ extension FollowerListVCSwift: UICollectionViewDelegate {
         if offsetY > contentHeight - height {
             guard hasMoreFollowers, !isLoadingMoreFollowers else { return }
             page += 1
-            // get followers
-            
+            getFollowers()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let activeArray     = isSearching ? filteredFollowers : followers
-        let follower        = activeArray[indexPath.item]
+//        let activeArray     = isSearching ? filteredFollowers : followers
+//        let follower        = activeArray[indexPath.item]
+        let follower        = followers[indexPath.item]
         
-        let destVC          = UserInfoVC()
-        destVC.username     = follower.login
-        destVC.delegate     = self
-        let navController   = UINavigationController(rootViewController: destVC)
-        present(navController, animated: true)
+        loadingVC.showLoadingView(onTheView: view)
+        sharedManager?.getUserInfo(for: follower.login, withCompletion: { [weak self] user, error in
+            guard let self = self else { return }
+            guard (error == nil) else {
+                NSLog(error!)
+                return
+            }
+            if (user != nil) {
+                let destVC = UserInfoVC(user: user!, andWith: follower, andWith: self)
+                DispatchQueue.main.async {
+                    self.present(destVC, animated: true)
+                    self.loadingVC.dismissLoadingView()
+                }
+            }
+        })
+    }
+}
+
+// MARK: - UserInfoVC Delegate
+
+extension FollowerListVCSwift: UserInfoVCDelegate {
+    func didRequestFollowers(forUsername username: String) {
+        self.username = username
+        title = username
+        page = 1
+        hasMoreFollowers = true
+        followers.removeAll()
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+        getFollowers()
     }
 }

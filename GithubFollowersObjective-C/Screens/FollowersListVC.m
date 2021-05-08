@@ -164,7 +164,9 @@
             NSLog(@"%@", error);
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.navigationController presentViewController:[[UserInfoVC alloc] initWithUser:user andWithFollower:follower andWithDelegate:self] animated:YES completion:nil];
+                [weakSelf.navigationController presentViewController:[[UserInfoVC alloc] initWithUser:user
+                                                                                      andWithFollower:follower
+                                                                                      andWithDelegate:self] animated:YES completion:nil];
             });
         }
     }];

@@ -13,7 +13,7 @@
 
 #pragma Singleton methods
 
-+ (id)sharedManager {
++ (NetworkManager *)sharedManager {
     static NetworkManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

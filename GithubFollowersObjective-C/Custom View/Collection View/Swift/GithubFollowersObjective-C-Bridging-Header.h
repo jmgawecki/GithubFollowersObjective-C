@@ -4,4 +4,6 @@
 
 #import "Follower.h"
 #import "FollowerCell.h"
+#import "UserInfoVC.h"
+#import "GFLoadingVC.h"
 
