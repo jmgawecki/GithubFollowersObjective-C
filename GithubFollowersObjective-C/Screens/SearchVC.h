@@ -11,6 +11,7 @@
 #import "FollowersListVC.h"
 #import "NetworkManager.h"
 #import "GFLoadingVC.h"
+#import "GithubFollowersObjective_C-Swift.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

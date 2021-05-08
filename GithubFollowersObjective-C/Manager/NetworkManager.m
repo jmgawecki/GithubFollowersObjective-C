@@ -26,8 +26,6 @@
     if (self = [super init]) {
         someProperty = @"Default Property Value";
         self.cache = [[NSCache alloc] init];
-        NSAssert(self.cache != nil, @"Cache is missing");
-        NSLog(@"Cache should be instantiated");
     }
     return self;
 }

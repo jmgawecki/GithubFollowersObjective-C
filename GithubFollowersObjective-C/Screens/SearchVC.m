@@ -60,10 +60,12 @@
                     // To avoid retain cycle:
                     weakSelf.followersArray = followers;
 
-                    [weakSelf.navigationController pushViewController:[[FollowersListVC alloc]
-                                                                   initWithUsername:self.searchTextField.text
-                                                                   andWithFollowers:self.followersArray]
-                                                         animated:YES];
+//                    [weakSelf.navigationController pushViewController:[[FollowersListVC alloc]
+//                                                                   initWithUsername:self.searchTextField.text
+//                                                                   andWithFollowers:self.followersArray]
+//                                                         animated:YES];
+                    FollowerListVCSwift *followersVCSwift = [[FollowerListVCSwift alloc] initWithUsername:self.searchTextField.text followers:self.followersArray];
+                    [weakSelf.navigationController pushViewController:followersVCSwift animated:YES];
                     [weakSelf.loadingVC dismissLoadingView];
                 });
             }
