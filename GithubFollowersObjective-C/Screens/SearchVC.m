@@ -75,7 +75,7 @@
 
 
 -(void)configureSearchButton {
-    [self.searchButton addTarget:self action:@selector(searchButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.searchButton addTarget:self action:@selector(HACONTESTsearchButtonTapped) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -87,8 +87,8 @@
     self.searchTextField.delegate   = self;
     self.searchButton               = [[GFButton alloc] initWithMessage:@"Search user"
                                                    withBackgroundColour:[UIColor systemGreenColor]];
-    self.sharedManager = [NetworkManager sharedManager];
-    self.loadingVC = [[GFLoadingVC alloc] init];
+    self.sharedManager              = [NetworkManager sharedManager];
+    self.loadingVC                  = [[GFLoadingVC alloc] init];
 }
 
 
@@ -122,6 +122,59 @@
     ]];
 }
 
+// MARK: - HACON TESTS
+
+/// Presents given UIViewController as UIPopoverPresentationController on the Main thread. Method replaces deprecated presentPopoverWithUIPopoverController.
+- (void)presentPopoverWithContentViewController:(UIViewController *)        contentViewController
+                                       fromRect:(CGRect)                    sourceRect
+                       permittedArrowDirections:(UIPopoverArrowDirection)   permittedArrowDirections
+                                       animated:(BOOL)                      animated {
+    
+    UIViewController *viewController            = contentViewController;
+    viewController.modalPresentationStyle       = UIModalPresentationPopover;
+    
+    if (viewController.isBeingPresented) {
+        [viewController dismissViewControllerAnimated:animated completion:nil];
+    }
+    
+    UIPopoverPresentationController *popover    = viewController.popoverPresentationController;
+    popover.permittedArrowDirections            = permittedArrowDirections;
+    popover.sourceRect                          = sourceRect;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        __weak typeof(self) weakSelf = self;
+        [weakSelf presentViewController:viewController animated:animated completion:nil];
+    });
+    
+//    self.localPopoverPresentationController2 = viewController;
+}
+
+- (void)DEPRECATEDpresentPopoverWithContentViewController:(UIViewController *)contentViewController
+                                       fromRect:(CGRect)sourceRect
+                       permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections
+                                       animated:(BOOL)animated
+{
+
+   UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:contentViewController];
+
+    [popoverController presentPopoverFromRect:sourceRect
+                                       inView:self.view
+                     permittedArrowDirections:permittedArrowDirections
+                                     animated:animated];
+
+}
+
+
+-(void)HACONTESTsearchButtonTapped {
+   [self presentPopoverWithContentViewController:[[SearchVC alloc] init]
+                                        fromRect:CGRectMake(0, 0, 100, 100)
+                        permittedArrowDirections:UIPopoverArrowDirectionDown
+                                        animated:YES];
+//   [self DEPRECATEDpresentPopoverWithContentViewController:[[SearchVC alloc] init]
+//                                                  fromRect:CGRectMake(0, 0, 150, 150)
+//                                  permittedArrowDirections:UIPopoverArrowDirectionDown
+//                                                  animated:YES];
+}
 
 // MARK: - UITextField Delegates
 

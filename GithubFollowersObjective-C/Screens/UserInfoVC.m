@@ -30,19 +30,19 @@
         self.user       = user;
         self.follower   = follower;
         self.delegate   = delegate;
-//        NSLog(@"%@", user.avatarUrl);
-//        NSLog(@"%@", user.bio); // nil check
-//        NSLog(@"%@", user.createdAt);
-//        NSLog(@"%@", user.followers);
-//        NSLog(@"%@", user.following);
-//        NSLog(@"%@", user.htmlUrl);
-//        NSLog(@"location %@", user.location); // nil check
-//        NSLog(@"login %@", user.login);
-//        NSLog(@"name %@", user.name); // nil check
-//        NSLog(@"%@", user.publicGists);
-//        NSLog(@"%@", user.publicRepos);
     }
     return self;
+}
+
+
++ (id)allocWithZone:(struct _NSZone *)zone
+{
+    if (self != [UserInfoVC class]) {
+        NSAssert(nil, @"Subclassing UserInfoVC is not allowed.");
+        return nil;
+    }
+
+    return [super allocWithZone:zone];
 }
 
 
@@ -129,7 +129,7 @@
 }
 
 - (void)didTapGetFollowersForUser:(User *)user {
-    if (self.user.followers == 0) {
+    if (self.user.followers == nil) {
         NSLog(@"No followers for that guy, sorry");
     } else {
         [self dismissViewControllerAnimated:YES completion:nil];

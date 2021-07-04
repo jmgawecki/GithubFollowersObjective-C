@@ -41,6 +41,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithUser:(User*)user andWithFollower:(Follower*)follower andWithDelegate:(id<UserInfoVCDelegate>)delegate;
 
+
++ (id)allocWithZone:(struct _NSZone *)zone;
+
 @end
 
 NS_ASSUME_NONNULL_END
+

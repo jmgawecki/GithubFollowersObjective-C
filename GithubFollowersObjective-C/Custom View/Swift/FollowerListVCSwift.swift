@@ -109,14 +109,14 @@ class FollowerListVCSwift: UIViewController {
     func getFollowers() {
         if (hasMoreFollowers) {
             loadingVC.showLoadingView(onTheView: view)
-            sharedManager?.getFollowersOf(username, atPage: page, completionURL: { [weak self] followers, error in
+         sharedManager.getFollowersOf(username, atPage: page, completionURL: { [weak self] followers, error in
                 guard let self = self else { return }
                 guard (error == nil) else {
-                    NSLog(error!)
+                  NSLog(error!)
                     return
                 }
                 if (followers != nil ) {
-                    if (followers?.count)! < 100 {
+                  if (followers!.count) < 100 {
                         self.hasMoreFollowers = false
                     }
                     self.followers.append(contentsOf: followers as! [Follower])
@@ -149,15 +149,16 @@ extension FollowerListVCSwift: UICollectionViewDelegate {
         let follower        = followers[indexPath.item]
         
         loadingVC.showLoadingView(onTheView: view)
-        sharedManager?.getUserInfo(for: follower.login, withCompletion: { [weak self] user, error in
+      sharedManager.getUserInfo(for: follower.login, withCompletion: { [weak self] user, error in
             guard let self = self else { return }
             guard (error == nil) else {
-                NSLog(error!)
+               NSLog(error!)
                 return
             }
             if (user != nil) {
-                let destVC = UserInfoVC(user: user!, andWith: follower, andWith: self)
                 DispatchQueue.main.async {
+                    // You put the initializer to DispatchMain because Xcode informed you that it was called from the background and it supposed to on main
+                  let destVC = UserInfoVC(user: user!, andWith: follower, andWith: self)
                     self.present(destVC, animated: true)
                     self.loadingVC.dismissLoadingView()
                 }

@@ -11,8 +11,7 @@
 
 @synthesize someProperty;
 
-#pragma Singleton methods
-
+// This instance will allow and work great with Swfit code
 + (NetworkManager *)sharedManager {
     static NetworkManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
@@ -62,11 +61,17 @@
 //    completion(jsonArray);
 //}
 
--(void)getFollowersOf:(NSString*)user atPage:(int)page completionURL:(void (^)(NSMutableArray*, NSString*))completion {
-    NSString *urlString = [NSString stringWithFormat:@"https://api.github.com/users/%@/followers?per_page=100&page=%d", user, page];
+-(void)getFollowersOf:(NSString*)user
+               atPage:(int)page
+        completionURL:(void (^)(NSMutableArray*, NSString*))completion {
+    
+   NSString *urlString  = [NSString stringWithFormat:@"https://api.github.com/users/%@/followers?per_page=100&page=%d", user, page];
     NSURL *url          = [NSURL URLWithString:urlString];
     
-    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url
+                                                             completionHandler:^(NSData *          _Nullable data,
+                                                                                 NSURLResponse *   _Nullable response,
+                                                                                 NSError *         _Nullable error) {
         
         if (error != nil) {
             completion(nil, error.localizedDescription);

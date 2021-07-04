@@ -14,33 +14,25 @@
 
 @implementation NetworkManagerTests
 
--(void)testGetFollowersOf {
-    NSString *urlString = [NSString stringWithFormat:@"https://api.github.com/users/sallen0400/followers"];
-    
-    NSURL *url = [NSURL URLWithString:urlString];
-    
-    NSError *error;
-    NSData *data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
-    
-    if (error != nil) {
-        NSLog(@"%@", [error localizedDescription]);
-    }
-    
-    // Decodes the NSData into an array of dictionaries
-    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    
-    if (error != nil) {
-        NSLog(@"%@", [error localizedDescription]);
-    }
-    
-//    NSMutableArray* jsonArray = [NSMutableArray new];
-    
-    // loop through each dictionary in the array
-//    for (NSDictionary *entry in json) {
-        // pull interesting data into variables
-//        NSLog(@"pring");
+//-(void)testGetFollowersOf {
+//    NSString *urlString = [NSString stringWithFormat:@"https://api.github.com/users/sallen0400/followers"];
+//    
+//    NSURL *url = [NSURL URLWithString:urlString];
+//    
+//    NSError *error;
+////    NSData *data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
+//    
+//    if (error != nil) {
+//        NSLog(@"%@", [error localizedDescription]);
 //    }
-}
+//    
+//    // Decodes the NSData into an array of dictionaries
+////    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+//    
+//    if (error != nil) {
+//        NSLog(@"%@", [error localizedDescription]);
+//    }
+//}
 
 -(void)testGetFollowersOfSallen0400ForPage1 {
     NSString *urlString = [NSString stringWithFormat:@"https://api.github.com/users/sallen0400/followers?per_page=100&page=1"];
